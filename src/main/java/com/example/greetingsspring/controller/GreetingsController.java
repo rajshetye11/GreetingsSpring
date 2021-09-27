@@ -1,21 +1,22 @@
 package com.example.greetingsspring.controller;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.greetingsspring.model.GreetingsModel;
+import com.example.greetingsspring.service.GreetingsService;
 
 @RestController
 public class GreetingsController {
 	
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
+	private GreetingsService greetingsService = new GreetingsService();
 	
 	@RequestMapping("/greeting")
 	public GreetingsModel greeting(@RequestParam (value="name",defaultValue="world") String name) {
@@ -29,4 +30,12 @@ public class GreetingsController {
 		
 	}
 	
+	@PostMapping(value="/addGreeting")
+	public void addGretings(@RequestParam (value="name",defaultValue="") String name,@RequestParam (value="firstName",defaultValue="") String firstName,@RequestParam (value="lastName",defaultValue="") String lastName) {
+		greetingsService.addGreeting( new GreetingsModel(counter.incrementAndGet(),"Hello "+ name + firstName + " " + lastName));
+		System.out.println(greetingsService.greetingList.size());
+	}
+
+	
 }
+	
