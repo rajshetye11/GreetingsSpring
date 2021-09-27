@@ -11,4 +11,13 @@ public class GreetingsService {
 	public void addGreeting(GreetingsModel greeting) {
 		greetingList.add(greeting);
 	}
+	
+	public GreetingsModel findGreeting(long id) {
+		for ( GreetingsModel x : greetingList) {
+			if (x.getId()==id) return x;
+		}
+		return new GreetingsModel(0, null);
+	}
+	
+	
 }

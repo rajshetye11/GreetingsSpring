@@ -2,6 +2,7 @@ package com.example.greetingsspring.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,5 +38,9 @@ public class GreetingsController {
 	}
 
 	
+	@RequestMapping(value = {"/get/{id}"},method = RequestMethod.GET)
+	public GreetingsModel greeting(@PathVariable long id) {	 
+		return greetingsService.findGreeting(id);
+	}
 }
 	
