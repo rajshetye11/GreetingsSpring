@@ -19,5 +19,11 @@ public class GreetingsService {
 		return new GreetingsModel(0, null);
 	}
 	
-	
+	public String listAllMessage() {
+		String all = "";
+		for ( GreetingsModel x : greetingList) {
+			all += x.toString();
+		}
+		return all;
+	}
 }

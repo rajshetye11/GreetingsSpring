@@ -42,5 +42,10 @@ public class GreetingsController {
 	public GreetingsModel greeting(@PathVariable long id) {	 
 		return greetingsService.findGreeting(id);
 	}
+	
+	@RequestMapping(value = {"/getAll"},method = RequestMethod.GET)
+	public String allMessages() {	 
+		return greetingsService.listAllMessage();
+	}
 }
 	
