@@ -2,29 +2,23 @@ package com.example.greetingsspring.model;
 
 public class GreetingsModel {
 
-	private String firstName;
-	private String lastName;
-	
-	public GreetingsModel(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	private long id;
+	private String message;
+	public GreetingsModel(long id, String message) {
+		super();
+		this.id = id;
+		this.message = message;
 	}
-	
-	public String getFirstName() {
-		return firstName;
+	public long getId() {
+		return id;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getMessage() {
+		return message;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	@Override
-	public String toString() {
-		return "Greetings [firstName=" + firstName + ", lastName=" + lastName + "]";
+	public void setMessage(String message) {
+		this.message = message;
 	}
 }
