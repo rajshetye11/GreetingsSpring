@@ -2,6 +2,7 @@ package com.example.greetingsspring.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +53,11 @@ public class GreetingsController {
 	@PostMapping(value="/editGreeting/{id}")
 	public void editGretings(@PathVariable("id") long id,@RequestParam (value = "message") String message) {
 		greetingsService.editMessage(id,message);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public void deleteGreeting(@PathVariable long id) {
+		greetingsService.deleteMessage(id);
 	}
 }
 	

@@ -32,4 +32,8 @@ public class GreetingsService {
 			if (x.getId()==id) x.setMessage(message);
 		}
 	}
+	
+	public void deleteMessage(long id) {
+		greetingList.removeIf(n->n.getId()==id);
+	}
 }
