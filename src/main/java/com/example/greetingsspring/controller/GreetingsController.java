@@ -47,5 +47,11 @@ public class GreetingsController {
 	public String allMessages() {	 
 		return greetingsService.listAllMessage();
 	}
+	
+
+	@PostMapping(value="/editGreeting/{id}")
+	public void editGretings(@PathVariable("id") long id,@RequestParam (value = "message") String message) {
+		greetingsService.editMessage(id,message);
+	}
 }
 	

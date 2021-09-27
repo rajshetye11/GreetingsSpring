@@ -26,4 +26,10 @@ public class GreetingsService {
 		}
 		return all;
 	}
+	
+	public void editMessage(long id, String message) {
+		for( GreetingsModel x : greetingList) {
+			if (x.getId()==id) x.setMessage(message);
+		}
+	}
 }
